@@ -1,0 +1,1 @@
+extractDigit(n/10);
