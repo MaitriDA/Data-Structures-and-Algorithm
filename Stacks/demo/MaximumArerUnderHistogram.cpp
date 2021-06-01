@@ -34,6 +34,9 @@ int main(){
 
         }
     }
+    for(int i=0;i<vl.size();i++){
+        cout<<vl[i]<<" ";
+    }
 
     vector<int>vr;
     stack<pair<int,int>>sr;
@@ -60,9 +63,9 @@ int main(){
 
         }
     }
-    // for(int i=0;i<n;i++){
-    //     cout<<"("<<vl[i]<<" "<<vr[n-i-1]<<") ";
-    // }
+    for(int i=0;i<n;i++){
+        cout<<"("<<vl[i]<<" "<<vr[n-i-1]<<") ";
+    }
     cout<<endl;
     int maximum=0;
     int max;

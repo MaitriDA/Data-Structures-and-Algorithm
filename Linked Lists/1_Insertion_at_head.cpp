@@ -1,4 +1,6 @@
 #include<iostream>
+#include<typeinfo>
+
 using namespace std;
 
 // Basic structure of a node of a linked list
@@ -17,6 +19,8 @@ void insertionAtHead(node*&head,int d){
         return;
     }
     node*n=new node(d);
+    cout<<"Data type of n: "<<typeid(n).name()<<endl;
+    cout<<"Data type of *n: "<<typeid(*n).name()<<endl;
     n->next=head;
     head=n;
 }
@@ -28,6 +32,7 @@ void print(node*head){
 }
 int main(){
     node*head=NULL;
+    cout<<"Data type of head: "<<typeid(head).name()<<endl;
     insertionAtHead(head,18);
     insertionAtHead(head,50);
     print(head);

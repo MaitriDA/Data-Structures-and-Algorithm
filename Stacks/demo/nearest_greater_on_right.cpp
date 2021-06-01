@@ -47,6 +47,7 @@ int main(){
             while(!s.empty()){
                 if(s.top()>arr[i]){
                     v.push_back(s.top());
+                    s.push(arr[i]);
                     break;
                 }
                 else{
