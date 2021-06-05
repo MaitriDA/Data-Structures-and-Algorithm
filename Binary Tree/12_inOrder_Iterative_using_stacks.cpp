@@ -1,5 +1,5 @@
 #include<iostream>
-#include<queue>
+#include<stack>
 using namespace std;
 class node{
     public:
@@ -25,16 +25,26 @@ node*builtTree(){
     return root;
 }
 
-int sum(node* root) {
-    if(root==NULL){
-        return 0;
+void inOrder_print(node* root) {
+    stack<node*>st;
+    node*curr=root;
+    while(true){
+        if(curr!=NULL){
+            st.push(curr);
+            curr=curr->left;
+        }
+        else{
+            if(st.empty()){
+                return;
+            }
+            cout<<st.top()->data<<" ";
+            curr=st.top()->right;
+            st.pop();
+        }
     }
-    int h1=sum(root->left);
-    int h2=sum(root->right);
-    return 1+max(h1,h2);
 }
 int main(){
     node*root=builtTree();
-    cout<<sum(root);
+    inOrder_print(root);
     return 0;
 }

@@ -1,5 +1,6 @@
 #include<iostream>
 #include<queue>
+#include<math.h>
 using namespace std;
 class node{
     public:
@@ -25,16 +26,29 @@ node*builtTree(){
     return root;
 }
 
-int sum(node* root) {
-    if(root==NULL){
-        return 0;
+bool isFoldableHelper(node*a,node*b){
+    if(a==NULL and b==NULL){
+        return true;
     }
-    int h1=sum(root->left);
-    int h2=sum(root->right);
-    return 1+max(h1,h2);
+    if(a==NULL || b==NULL){
+        return false;
+    }
+    return isFoldableHelper(a->left,b->left) && isFoldableHelper(a->right,b->right);
 }
+bool isFoldable(node*root){
+    if(root==NULL){
+        return true;
+    }
+    return isFoldableHelper(root->left,root->right);
+}
+
 int main(){
     node*root=builtTree();
-    cout<<sum(root);
+    if(isFoldable(root)){
+        cout<<"Foldable"<<endl;
+    }
+    else{
+        cout<<"Not Foldable"<<endl;
+    }
     return 0;
 }

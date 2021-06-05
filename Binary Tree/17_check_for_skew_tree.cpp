@@ -1,5 +1,6 @@
 #include<iostream>
 #include<queue>
+#include<math.h>
 using namespace std;
 class node{
     public:
@@ -25,16 +26,26 @@ node*builtTree(){
     return root;
 }
 
-int sum(node* root) {
-    if(root==NULL){
-        return 0;
+bool skewRec(node*root){
+    if(root==NULL || (root->left==NULL && root->right==NULL)){
+        return true;
     }
-    int h1=sum(root->left);
-    int h2=sum(root->right);
-    return 1+max(h1,h2);
+    if(root->left && root->right){
+        return false;
+    }
+    if(root->left){
+        return skewRec(root->left);
+    }
+    return skewRec(root->right);
 }
+
 int main(){
     node*root=builtTree();
-    cout<<sum(root);
+    if(skewRec(root)){
+        cout<<"Yes"<<endl;
+    }
+    else{
+        cout<<"No"<<endl;
+    }
     return 0;
 }

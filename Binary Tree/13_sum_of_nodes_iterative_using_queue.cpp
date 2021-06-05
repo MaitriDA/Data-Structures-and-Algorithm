@@ -29,9 +29,21 @@ int sum(node* root) {
     if(root==NULL){
         return 0;
     }
-    int h1=sum(root->left);
-    int h2=sum(root->right);
-    return 1+max(h1,h2);
+    int total=0;
+    queue<node*>q;
+    q.push(root);
+    while(!q.empty()){
+        node*curr=q.front();
+        total=total+curr->data;
+        q.pop();
+        if(curr->left){
+            q.push(curr->left);
+        }
+        if(curr->right){
+            q.push(curr->right);
+        }
+    }
+    return total;
 }
 int main(){
     node*root=builtTree();
