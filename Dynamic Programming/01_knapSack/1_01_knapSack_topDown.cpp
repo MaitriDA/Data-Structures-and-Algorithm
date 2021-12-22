@@ -21,11 +21,18 @@ int knapsack(int wt[],int val[],int n,int w){
                 //here there is a choice of including the element or not and the 
                 //maximum of both is taken as the answer for further calculations.
                 dp[i][j]=max((val[i-1]+dp[i-1][j-wt[i-1]]),dp[i-1][j]);
+                
             }
             else{
                 dp[i][j]=dp[i-1][j];
             }
         }
+    }
+    for(int i=0;i<n+1;i++){
+        for(int j=0;j<w+1;j++){
+            cout<<dp[i][j]<<" ";
+        }
+        cout<<endl;
     }
     return dp[n][w];
 }

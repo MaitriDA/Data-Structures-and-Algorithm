@@ -43,13 +43,7 @@ node* reverse(node*&head,int k){
         curr=n;
         count++;
     }
-    count=0;
     if(n!=NULL){
-        head->next=n;
-        while(count<k){
-            n=n->next;
-            count++;
-        }
         head->next=reverse(n,k);
     }
     head=prev;

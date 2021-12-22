@@ -45,6 +45,14 @@ void remove_loop(node*head){
         slow=slow->next;
         fast=fast->next->next;
     }
+    if(slow==head){
+        node*temp=head;
+        while(temp->next!=head){
+            temp=temp->next;
+        }
+        temp->next=NULL;
+        return;
+    }
     if(slow==fast){
         slow=head;
         while(slow->next!=fast->next){

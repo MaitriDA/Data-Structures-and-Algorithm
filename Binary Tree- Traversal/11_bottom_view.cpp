@@ -34,7 +34,7 @@ void bottomViewUtil(node*root,int hd,int height,map<int,pair<int,int>>&m){
     }
     else{
         pair<int,int>p=(m.find(hd))->second;
-        if(p.second>height){
+        if(p.second<height){
             m.erase(hd);
             m[hd]=make_pair(root->data,height);
         }

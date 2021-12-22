@@ -1,1 +1,4 @@
-rightViewUtil(root->right,level+1,max_level);
+for (it = m.begin(); it != m.end(); it++) { 
+        pair<int, int> p = it->second; 
+        cout << p.first << " "; 
+    }
